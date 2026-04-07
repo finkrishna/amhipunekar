@@ -1,0 +1,932 @@
+{
+  "project": "AmhiPunekar",
+  "version": "1.0",
+  "total_entries": 71,
+  "entries": [
+    {
+      "id": "DB-PAT-001",
+      "type": "patya",
+      "text_original": "उधार मागून आपला अपमान करून घेऊ नये, ही नम्र विनंती.",
+      "text_translation": "Please do not ask for credit and get yourself insulted. A humble request.",
+      "tone": "sardonic",
+      "topics": [
+        "class",
+        "culture"
+      ],
+      "score": 9,
+      "signal": "weaponized civility — the insult is delivered by the asker, not the shopkeeper"
+    },
+    {
+      "id": "DB-PAT-002",
+      "type": "patya",
+      "text_original": "उगाच घंटी वाजवू नका, आम्ही विजेचे बील भरतो. कडीही वाजवू नका, कडी झिजेल.",
+      "text_translation": "Do not ring the bell for no reason; we pay the electricity bill. Do not even knock; the door latch will wear out.",
+      "tone": "dry",
+      "topics": [
+        "outsiders",
+        "culture"
+      ],
+      "score": 10,
+      "signal": "petty precision — every possible visitor contact pre-empted with its exact cost"
+    },
+    {
+      "id": "DB-PAT-003",
+      "type": "patya",
+      "text_original": "हॉटेल ओबेरॉय (आमची कोठेही शाखा नाही)",
+      "text_translation": "Hotel Oberoi (We have no branches anywhere).",
+      "tone": "sardonic",
+      "topics": [
+        "food",
+        "class"
+      ],
+      "score": 9,
+      "signal": "aspiration mocked while being invoked — the disclaimer is the joke"
+    },
+    {
+      "id": "DB-PAT-004",
+      "type": "patya",
+      "text_original": "आम्ही खाद्यपदार्थांचे पैसे आकारतो. जागेचे भाडे नाही.",
+      "text_translation": "We charge for the food items. We do not charge rent for the space.",
+      "tone": "resigned",
+      "topics": [
+        "food",
+        "class"
+      ],
+      "score": 8,
+      "signal": "information-that-is-actually-a-rebuke — politely tells you to leave"
+    },
+    {
+      "id": "DB-PAT-005",
+      "type": "patya",
+      "text_original": "अब कि बार / कुणाचेही असो सरकार / पण बेल वाजवू नका १ ते ४ / इथे दुपारी झोपतो मतदार.",
+      "text_translation": "This time, whoever forms the government, do not ring the bell from 1 to 4, because the voter sleeps here in the afternoon.",
+      "tone": "dry",
+      "topics": [
+        "politics",
+        "culture"
+      ],
+      "score": 10,
+      "signal": "political literacy + domestic sovereignty + complete indifference — the nap beats the election"
+    },
+    {
+      "id": "DB-PAT-006",
+      "type": "patya",
+      "text_original": "आमचे येथे बर्गर व परकर मिळतील. तसेच बाहेरील खाद्य पदार्थांस एक रुपयात सॉस लावून मिळेल. ह्या ब्रांचचे मालक इथेच जेवतात (टीप: मालकांच्या वजनाची चौकशी करू नये - हुकूमावरून).",
+      "text_translation": "We serve burgers and parathas here. Outside food served with sauce for one rupee. The owner eats here too (note: do not ask about the owner's weight — by order).",
+      "tone": "sardonic",
+      "topics": [
+        "food",
+        "bureaucracy"
+      ],
+      "score": 9,
+      "signal": "bureaucratic authority deployed to protect personal vanity — hukumanausar"
+    },
+    {
+      "id": "DB-PAT-007",
+      "type": "patya",
+      "text_original": "The contract of painting the walls of this building has not been handed over to anyone yet. Hence do not complete the job by spitting on the walls.",
+      "text_translation": null,
+      "tone": "dry",
+      "topics": [
+        "bureaucracy",
+        "culture"
+      ],
+      "score": 10,
+      "signal": "spitting reframed as unauthorised contract execution — the spitter is an administrative error"
+    },
+    {
+      "id": "DB-PAT-008",
+      "type": "patya",
+      "text_original": "Mazhyakade turtaas lagnyacha mulga athva mulgi nahi, tevha var vadhu pityana majhya gharchi bel vajuvu naye",
+      "text_translation": "At the moment, I don't have a boy or girl of marriageable age; hence fathers of wannabe brides and grooms should not ring my doorbell.",
+      "tone": "dry",
+      "topics": [
+        "culture",
+        "class"
+      ],
+      "score": 10,
+      "signal": "entire matchmaking ritual dismantled by addressing its missing premise"
+    },
+    {
+      "id": "DB-PAT-009",
+      "type": "patya",
+      "text_original": "Two people cannot eat one Misal, and if they do then they will be charged Rs 10/- extra!",
+      "text_translation": null,
+      "tone": "dry",
+      "topics": [
+        "food",
+        "markets"
+      ],
+      "score": 9,
+      "signal": "the fine is philosophical, not punitive — names the transgression, doesn't stop it"
+    },
+    {
+      "id": "DB-PAT-010",
+      "type": "patya",
+      "text_original": "This is the site of a 100 m motorcross race organised by the Pune municipal corporation!",
+      "text_translation": null,
+      "tone": "sardonic",
+      "topics": [
+        "bureaucracy",
+        "traffic"
+      ],
+      "score": 9,
+      "signal": "civic failure rebranded as sporting achievement — the exclamation mark performs enthusiasm"
+    },
+    {
+      "id": "DB-PAT-011",
+      "type": "patya",
+      "text_original": "रंग ओला आहे. विश्वास नसेल, तर हात लावून पहावे.",
+      "text_translation": "The paint is wet. If you do not believe it, touch it and see.",
+      "tone": "dry",
+      "topics": [
+        "bureaucracy",
+        "culture"
+      ],
+      "score": 9,
+      "signal": "warning delivered as a dare — statement + conditional permission to disprove + unstated consequence"
+    },
+    {
+      "id": "DB-PAT-012",
+      "type": "patya",
+      "text_original": "साने येथेच राहतात. उगीच भलतीकडे चौकशी करू नये.",
+      "text_translation": "The Sanes live right here. Do not go asking elsewhere unnecessarily.",
+      "tone": "dry",
+      "topics": [
+        "outsiders",
+        "culture"
+      ],
+      "score": 8,
+      "signal": "pre-emptive correction of an error that has not yet occurred"
+    },
+    {
+      "id": "DB-PAT-013",
+      "type": "patya",
+      "text_original": "दुपारी १ ते ४ या वेळात दरवाजा वाजवू नये. वाजवल्यास उघडला जाणार नाही.",
+      "text_translation": "Do not ring the doorbell between 1 PM and 4 PM. Even if you do, it will not be opened.",
+      "tone": "dry",
+      "topics": [
+        "culture",
+        "bureaucracy"
+      ],
+      "score": 9,
+      "signal": "does not threaten — removes hope. You may ring. Nothing will happen."
+    },
+    {
+      "id": "DB-PAT-014",
+      "type": "patya",
+      "text_original": "येथे गाडी लावू नये. टायरमधील हवा काढली जाईल.",
+      "text_translation": "Do not park vehicles here. Air will be released from the tires.",
+      "tone": "outraged",
+      "topics": [
+        "traffic"
+      ],
+      "score": 9,
+      "signal": "personal, manual, intimate punishment — not towing, but air release. Someone will come out and crouch."
+    },
+    {
+      "id": "DB-PAT-015",
+      "type": "patya",
+      "text_original": "येऊन गेलात, त्याबद्दल धन्यवाद. पुन्हा येऊ नका.",
+      "text_translation": "You came, thank you for that. Don't come again.",
+      "tone": "sardonic",
+      "topics": [
+        "culture"
+      ],
+      "score": 9,
+      "signal": "Puneri hospitality paradox — visit appreciated, noted, concluded. No further visits necessary."
+    },
+    {
+      "id": "DB-PAT-016",
+      "type": "patya",
+      "text_original": "उचित खोराकी दिलेली आहे, कुत्रा पाहून असावा.",
+      "text_translation": "The dog has been properly fed; enter only after looking.",
+      "tone": "dry",
+      "topics": [
+        "culture"
+      ],
+      "score": 9,
+      "signal": "beware-of-dog rewritten as nutritional status report — well-fed dog therefore energetic therefore dangerous"
+    },
+    {
+      "id": "DB-PAT-017",
+      "type": "patya",
+      "text_original": "भाजी विकत घेण्यापूर्वी घरी कोणाला विचारायचे असल्यास आधीच विचारून यावे.",
+      "text_translation": "If you need to ask someone at home before buying vegetables, please ask before coming.",
+      "tone": "sardonic",
+      "topics": [
+        "markets",
+        "technology"
+      ],
+      "score": 9,
+      "signal": "vendor has redesigned your workflow for you — complete your indecision before arrival"
+    },
+    {
+      "id": "DB-PAT-018",
+      "type": "patya",
+      "text_original": "लग्नाच्या पत्रिका वाटण्यासाठी दुपारी येऊ नये. आम्ही झोपलो असतो.",
+      "text_translation": "Do not come to distribute wedding cards in the afternoon. We are asleep.",
+      "tone": "resigned",
+      "topics": [
+        "culture"
+      ],
+      "score": 9,
+      "signal": "nap > wedding invitation. Social obligations must schedule around Pune time."
+    },
+    {
+      "id": "DB-PAT-019",
+      "type": "patya",
+      "text_original": "पुस्तके वाचण्यासाठी आहेत, बघण्यासाठी नाहीत.",
+      "text_translation": "Books are for reading, not for looking at.",
+      "tone": "dry",
+      "topics": [
+        "education",
+        "markets"
+      ],
+      "score": 9,
+      "signal": "ABC bookshop gatekeeping — clarifying the purpose of books to someone who has forgotten"
+    },
+    {
+      "id": "DB-PAT-020",
+      "type": "patya",
+      "text_original": "आमच्याकडे सर्व भाषेतील झेरॉक्स काढून मिळतील.",
+      "text_translation": "We make Xerox copies in all languages.",
+      "tone": "dry",
+      "topics": [
+        "technology",
+        "language"
+      ],
+      "score": 7,
+      "signal": "deadpan confidence in a capability that requires no capability — Xerox is language-agnostic"
+    },
+    {
+      "id": "DB-PAT-021",
+      "type": "patya",
+      "text_original": "कृपया 'सुट्टे' पैसे आणल्यासच खरेदी करावी. आमचेकडे बँक नाही.",
+      "text_translation": "Please shop only if you have exact change. We are not a bank.",
+      "tone": "demolition",
+      "topics": [
+        "markets"
+      ],
+      "score": 8,
+      "signal": "krupaya doing heavy lifting — the Puneri please that makes a demand sound like a request"
+    },
+    {
+      "id": "DB-META-001",
+      "type": "cultural_reference",
+      "text_original": "पुणेरी पाट्या ह्या नावाखाली कोणत्याही गावतल्या पाटया टाकतात हल्ली लोक. लिखाण जरा खोचक असलं कि त्या पाटीला पुणेरी म्हणायचा शिरस्ताच पडला आहे.",
+      "text_translation": "People now post signs from any village under the name Puneri Patya. If the writing is a bit sharp, the habit is to call the sign Puneri.",
+      "tone": "philosophical",
+      "topics": [
+        "culture",
+        "language"
+      ],
+      "score": 9,
+      "signal": "community insider articulating the authenticity standard — khochak alone is not enough"
+    },
+    {
+      "id": "DB-PRV-001",
+      "type": "proverb",
+      "text_original": "दूरचे डोंगर साजरे",
+      "text_translation": "Distant mountains look beautiful.",
+      "tone": "philosophical",
+      "topics": [
+        "philosophy",
+        "culture"
+      ],
+      "score": 7,
+      "signal": "deflates idealisation — Tatya uses when someone talks about Mumbai or Bangalore being better"
+    },
+    {
+      "id": "DB-PRV-002",
+      "type": "proverb",
+      "text_original": "उंटावरून शेळ्या हाकणं",
+      "text_translation": "Herding goats while riding a camel.",
+      "tone": "dry",
+      "topics": [
+        "bureaucracy",
+        "class"
+      ],
+      "score": 8,
+      "signal": "impractical management from a position of distance — for consultants, politicians, anyone advising from far away"
+    },
+    {
+      "id": "DB-PRV-003",
+      "type": "proverb",
+      "text_original": "अति शहाणा त्याचा बैल रिकामा.",
+      "text_translation": "The over-smart person's ox remains idle.",
+      "tone": "sardonic",
+      "topics": [
+        "philosophy",
+        "education"
+      ],
+      "score": 9,
+      "signal": "'ati shahana' — not stupid, far worse, too clever. The ox stands idle because the owner was busy being clever."
+    },
+    {
+      "id": "DB-PRV-004",
+      "type": "proverb",
+      "text_original": "पडली तरी नाक वर.",
+      "text_translation": "Even if she fell, her nose is still pointing up.",
+      "tone": "dry",
+      "topics": [
+        "culture",
+        "class"
+      ],
+      "score": 9,
+      "signal": "Brahmin pride that survives physical defeat — the nose stays up regardless"
+    },
+    {
+      "id": "DB-PRV-005",
+      "type": "proverb",
+      "text_original": "गाढवाला गुळाची चव काय?",
+      "text_translation": "What does a donkey know of the taste of jaggery?",
+      "tone": "demolition",
+      "topics": [
+        "culture",
+        "class",
+        "education"
+      ],
+      "score": 8,
+      "signal": "category mismatch — donkey is not blamed for not appreciating jaggery, it is simply not equipped"
+    },
+    {
+      "id": "DB-PRV-006",
+      "type": "proverb",
+      "text_original": "घरात नाही दाणा, अन् मला बाजीराव म्हणा.",
+      "text_translation": "Not a grain in the house, but call me Bajirao.",
+      "tone": "sardonic",
+      "topics": [
+        "class",
+        "history"
+      ],
+      "score": 9,
+      "signal": "false pride measured against Peshwa standards — specifically Puneri in its historical reference"
+    },
+    {
+      "id": "DB-PRV-007",
+      "type": "proverb",
+      "text_original": "नाचता येईना अंगण वाकडे.",
+      "text_translation": "Can't dance, so blames the floor for being crooked.",
+      "tone": "sardonic",
+      "topics": [
+        "philosophy",
+        "education"
+      ],
+      "score": 8,
+      "signal": "incompetence + convenient external cause — the floor is not crooked, you cannot dance"
+    },
+    {
+      "id": "DB-PRV-008",
+      "type": "proverb",
+      "text_original": "देणे कुसळ आणि घेणे मुसळ.",
+      "text_translation": "Giving a blade of grass and taking a pestle.",
+      "tone": "sardonic",
+      "topics": [
+        "markets",
+        "philosophy"
+      ],
+      "score": 8,
+      "signal": "asymmetric transaction — tiny contribution, enormous expectation"
+    },
+    {
+      "id": "DB-PLA-001",
+      "type": "essay_excerpt",
+      "text_original": "जगात काय बोलत आहात ह्यापेक्षा कोण बोलत आहात ह्याला जास्त महत्त्व आहे.",
+      "text_translation": "In this world, who is speaking matters more than what is being said.",
+      "source_work": "Asa Mi Asami",
+      "tone": "sardonic",
+      "topics": [
+        "philosophy",
+        "culture",
+        "language"
+      ],
+      "score": 10,
+      "signal": "social fact named drily — Tatya uses this to demolish credential-dropping"
+    },
+    {
+      "id": "DB-PLA-002",
+      "type": "essay_excerpt",
+      "text_original": "प्रयास हा प्रतिभेचा प्राणवायू आहे.",
+      "text_translation": "Effort is the oxygen of talent.",
+      "source_work": "Vyakti ani Valli — Sakharam Gatne",
+      "tone": "philosophical",
+      "topics": [
+        "education",
+        "philosophy"
+      ],
+      "score": 9,
+      "signal": "compressed, metabolic image — Puneri earnestness delivered through a bookish character"
+    },
+    {
+      "id": "DB-PLA-003",
+      "type": "essay_excerpt",
+      "text_original": "परिस्थिति हा अश्रूंचा कारखाना आहे!",
+      "text_translation": "Circumstance is a factory of tears.",
+      "source_work": "Vyakti ani Valli — Sakharam Gatne",
+      "tone": "philosophical",
+      "topics": [
+        "philosophy"
+      ],
+      "score": 8,
+      "signal": "industrial production logic applied to human emotion — Tatya uses when someone overdramatises"
+    },
+    {
+      "id": "DB-PLA-004",
+      "type": "essay_excerpt",
+      "text_original": "शेवटी काय हो, आपण पत्त्याच्या नावाचे धनी, मजकुराचा मालक निराळाच.",
+      "text_translation": "In the end, all we own is the address on the envelope. The contents belong to someone else entirely.",
+      "source_work": "Post Office essay",
+      "tone": "philosophical",
+      "topics": [
+        "philosophy",
+        "culture"
+      ],
+      "score": 10,
+      "signal": "'shevati kay ho' — the Pune conversational shrug before a devastating observation"
+    },
+    {
+      "id": "DB-PLA-005",
+      "type": "essay_excerpt",
+      "text_original": "माणसाचे केस गेलेले असले तरी चालतील, पण माणूस हा गेलेली केस नसावा.",
+      "text_translation": "A man may well have lost his hair, but a man should not be a lost cause.",
+      "source_work": "various — widely verified",
+      "tone": "dry",
+      "topics": [
+        "philosophy",
+        "culture"
+      ],
+      "score": 9,
+      "signal": "'geleli kes' — not failed but finished. The worst condition is intellectual disengagement."
+    },
+    {
+      "id": "DB-PLA-006",
+      "type": "essay_excerpt",
+      "text_original": "मराठीला जी 'मज्जा संस्था' वाटते, तीच इंग्रजीला 'नर्व्हस सिस्टीम' वाटते. फक्त दृष्टिकोनाचा फरक आहे.",
+      "text_translation": "What Marathi calls 'majja sanstha', English calls 'nervous system'. It's just a difference in perspective.",
+      "source_work": "various — widely verified",
+      "tone": "dry",
+      "topics": [
+        "language",
+        "culture",
+        "philosophy"
+      ],
+      "score": 10,
+      "signal": "Marathi carries pleasure and vitality in its anatomy — the nervous system in Marathi is the fun system"
+    },
+    {
+      "id": "DB-PLA-007",
+      "type": "essay_excerpt",
+      "text_original": "माणूस निरुत्तर झाला तरी हरकत नाही, पण निष्प्रश्न झाला की संपलाच.",
+      "text_translation": "A man may run out of answers — that is acceptable. But when he runs out of questions, he is finished.",
+      "source_work": "various — widely verified",
+      "tone": "philosophical",
+      "topics": [
+        "philosophy",
+        "education"
+      ],
+      "score": 9,
+      "signal": "niruttar vs nishprashn — intellectual humility vs intellectual death"
+    },
+    {
+      "id": "DB-PLA-008",
+      "type": "essay_excerpt",
+      "text_original": "माणूस अपयशाला भीत नाही. अपयशाचं खापर फोडायला काहीच मिळालं नाही तर याची त्याला भिती वाटते.",
+      "text_translation": "A man is not afraid of failure. What he fears is having nothing to blame the failure on.",
+      "source_work": "various — widely verified",
+      "tone": "sardonic",
+      "topics": [
+        "philosophy",
+        "culture"
+      ],
+      "score": 10,
+      "signal": "the khapar psychology — the real terror is not failure but absence of a blame vessel"
+    },
+    {
+      "id": "DB-PLA-009",
+      "type": "essay_excerpt",
+      "text_original": "पोटापाण्याचा उद्योग तुम्हाला जगवील, पण कलेशी जमलेली मैत्री तुम्ही का जगायचं हे सांगून जाईल.",
+      "text_translation": "Your livelihood will keep you alive. But a friendship with art will tell you why you are living.",
+      "source_work": "Asa Mi Asami",
+      "tone": "warm",
+      "topics": [
+        "philosophy",
+        "culture",
+        "education"
+      ],
+      "score": 9,
+      "signal": "rare PuLa earnestness — Tatya quotes this seriously, not as demolition"
+    },
+    {
+      "id": "DB-PLA-010",
+      "type": "essay_excerpt",
+      "text_original": "रातकिडा कर्कश ओरडतो यात वादच नाही, त्याचा त्रास होतो. पण त्याहीपेक्षा जास्त त्रास तो कुठे बसून ओरडतो हे सापडत नाही, याचा होतो.",
+      "text_translation": "The cricket's harsh cry is undoubtedly irritating. But what irritates even more is that you cannot find where it is sitting.",
+      "source_work": "various — widely verified",
+      "tone": "dry",
+      "topics": [
+        "philosophy",
+        "bureaucracy"
+      ],
+      "score": 9,
+      "signal": "taxonomy of irritation — the sound is bad, the invisibility of the source is worse. For PMC, markets, vague critics."
+    },
+    {
+      "id": "DB-PLA-011",
+      "type": "essay_excerpt",
+      "text_original": "खरं तर सगळे कागद सारखेच, फक्त त्याला अहंकार चिटकला की त्याचे सर्टिफिकेट होते.",
+      "text_translation": "Actually all papers are the same — it is only when ego sticks to it that it becomes a certificate.",
+      "source_work": "various — widely verified",
+      "tone": "sardonic",
+      "topics": [
+        "education",
+        "class"
+      ],
+      "score": 9,
+      "signal": "certificate = paper + adhered ego. Tatya's core credential-demolition tool."
+    },
+    {
+      "id": "DB-PLA-012",
+      "type": "essay_excerpt",
+      "text_original": "कोडगेपणाचा अमर्याद विकास झाला की त्यातूनच स्वत:च्या पोरांना अमेरिकेला धाडून दुसऱ्याच्या पोरांना 'शासकीय मराठीत शिका' असा उपदेश करणारे पुढारी तयार होतात.",
+      "text_translation": "When shamelessness reaches unlimited development, it produces leaders who send their own children to America while advising other people's children to study in Marathi-medium government schools.",
+      "source_work": "various — widely verified",
+      "tone": "outraged",
+      "topics": [
+        "politics",
+        "education",
+        "class"
+      ],
+      "score": 10,
+      "signal": "kodagepana as a developed professional skill — the hypocrite politician, precisely named"
+    },
+    {
+      "id": "DB-PLA-013",
+      "type": "poem_excerpt",
+      "text_original": "मी राहतो पुण्यात म्हणजे विद्वत्तेच्या 'ठाण्या'त. इथल्या मंडईचे देखील विद्यापिठ आहे. आणि विद्यापीठाची मंडई झाली आहे. बोलणे हा इथला धर्म आहे आणि ऐकणे हा दानधर्म आहे. म्हणून पुण्यात वक्ते उपदेश करतात आणि श्रोते उपकार करतात.",
+      "text_translation": "I live in Pune — in the 'thana' of learning. Even the vegetable market here has become a university, and the university has become a vegetable market. Speaking is the local religion, and listening is an act of charity. Hence in Pune, speakers preach, and listeners do a favour by staying.",
+      "source_work": "Mi Rahato Punyaat (poem)",
+      "tone": "sardonic",
+      "topics": [
+        "culture",
+        "education",
+        "language"
+      ],
+      "score": 10,
+      "signal": "THE foundational Pune portrait — bolne ha dharm, aikne ha daandharm. Tatya speaks. You are fortunate."
+    },
+    {
+      "id": "DB-JRN-001",
+      "type": "essay_excerpt",
+      "text_original": "सरकारचे डोके ठिकाणावर आहे का?",
+      "text_translation": "Is the government in its right mind?",
+      "source": "Tilak, Kesari headline",
+      "tone": "demolition",
+      "topics": [
+        "politics",
+        "bureaucracy",
+        "history"
+      ],
+      "score": 10,
+      "signal": "the master tomna — frames demolition as a sincere inquiry into mental competence. Tatya's core rhetorical move."
+    },
+    {
+      "id": "DB-JRN-002",
+      "type": "essay_excerpt",
+      "text_original": "इष्ट असेल ते बोलणार, साध्य असेल ते करणार.",
+      "text_translation": "I will say what is right; I will do what is achievable.",
+      "source": "Agarkar, Sudharak motto",
+      "tone": "philosophical",
+      "topics": [
+        "philosophy",
+        "politics"
+      ],
+      "score": 9,
+      "signal": "Tatya's intellectual backbone — will not compromise what he says, will be realistic about what he does"
+    },
+    {
+      "id": "DB-JRN-003",
+      "type": "essay_excerpt",
+      "text_original": "जुने ते सोने, पण गंजलेले असेल तर फेकून द्यावे.",
+      "text_translation": "Old is gold, but if it's rusted, throw it away.",
+      "source": "Agarkar, Sudharak",
+      "tone": "sardonic",
+      "topics": [
+        "culture",
+        "history",
+        "philosophy"
+      ],
+      "score": 9,
+      "signal": "takes received wisdom, accepts premise, adds condition that subverts it — the Puneri reformist move"
+    },
+    {
+      "id": "DB-JRN-004",
+      "type": "essay_excerpt",
+      "text_original": "पुणे आता आयटीचे शहर झाले आहे, पण आत्मा शनिवारवाड्यातच आहे.",
+      "text_translation": "Pune is now an IT city, but its soul is still in Shaniwarwada.",
+      "source": "Sakal, modern Pune diary",
+      "tone": "nostalgic",
+      "topics": [
+        "technology",
+        "history",
+        "culture"
+      ],
+      "score": 8,
+      "signal": "Tatya's own position — body in modern Pune, operating from Shaniwarwada time"
+    },
+    {
+      "id": "DB-DGT-001",
+      "type": "cultural_reference",
+      "text_original": "Every Diwali, the same posts start popping up — 'Non-Punekars are gone, roads are empty, Pune is clean again!' Basically, heaven on earth.",
+      "tone": "resigned",
+      "topics": [
+        "outsiders",
+        "traffic",
+        "culture"
+      ],
+      "score": 9,
+      "signal": "self-aware Puneri grievance — historically grounded irritation delivered with enough self-awareness to be funny"
+    },
+    {
+      "id": "DB-DGT-002",
+      "type": "joke",
+      "text_original": "Hinjewadi is where dreams go to die in third gear.",
+      "tone": "resigned",
+      "topics": [
+        "technology",
+        "traffic"
+      ],
+      "score": 8,
+      "signal": "third gear specificity — not stopped (first) but tantalizingly close to moving. Contemporary Puneri sardonic precision."
+    },
+    {
+      "id": "DB-DGT-003",
+      "type": "joke",
+      "text_original": "पुणेरी मिसळ तिखट नसते, तो संस्कार असतो.",
+      "text_translation": "Puneri Misal isn't spicy, it's a value system.",
+      "tone": "dry",
+      "topics": [
+        "food",
+        "culture"
+      ],
+      "score": 9,
+      "signal": "food as moral category — if you can't handle it, you have a sanskar deficit"
+    },
+    {
+      "id": "DB-DGT-004",
+      "type": "joke",
+      "text_original": "कोथरूडकर म्हणजे पुण्याचे एनआरआय.",
+      "text_translation": "Kothrud residents are the NRIs of Pune.",
+      "tone": "sardonic",
+      "topics": [
+        "real_estate",
+        "class"
+      ],
+      "score": 9,
+      "signal": "internal geography as identity — Kothrud is far enough from the Peths to be effectively abroad"
+    },
+    {
+      "id": "DB-DGT-005",
+      "type": "joke",
+      "text_original": "If you don't sleep from 1-4, are you even from Pune?",
+      "tone": "dry",
+      "topics": [
+        "culture"
+      ],
+      "score": 8,
+      "signal": "the afternoon nap as the definitive Pune identity shibboleth"
+    },
+    {
+      "id": "DB-INS-001",
+      "type": "cultural_reference",
+      "text_original": "Even if Dagdusheth Ganapati came to Chitale Bandhu store at 2 pm, the owners will ask the god to come back after 4 pm.",
+      "text_translation": null,
+      "source": "PuLa Deshpande on Chitale Bandhu",
+      "tone": "warm",
+      "topics": [
+        "food",
+        "culture",
+        "religion"
+      ],
+      "score": 10,
+      "signal": "institution over divinity — schedule over prayer. The Pune value system in one sentence."
+    },
+    {
+      "id": "DB-INS-002",
+      "type": "cultural_reference",
+      "text_original": "बालगंधर्व मध्ये टाळ्या वाजवणे हे एका परीक्षेसारखे आहे.",
+      "text_translation": "Clapping in Balgandharva is like an exam.",
+      "tone": "philosophical",
+      "topics": [
+        "culture",
+        "education"
+      ],
+      "score": 9,
+      "signal": "Punekars do not merely watch theatre, they adjudicate it — the clap is a verdict"
+    },
+    {
+      "id": "DB-INS-003",
+      "type": "cultural_reference",
+      "text_original": "एबीसी मध्ये जे पुस्तक मिळत नाही, ते जगात कुठेच नसते.",
+      "text_translation": "A book not found in ABC doesn't exist anywhere in the world.",
+      "tone": "dry",
+      "topics": [
+        "education",
+        "culture"
+      ],
+      "score": 8,
+      "signal": "Puneri hyperbole for intellectual gatekeeping — ABC is the standard, not the Library of Congress"
+    },
+    {
+      "id": "DB-VOC-001",
+      "type": "vocabulary",
+      "text_original": "खोचक",
+      "text_transliterated": "Khochak",
+      "text_translation": "Pointed, barbed — the ideal descriptor for a Puneri remark",
+      "topics": [
+        "language"
+      ],
+      "score": 9
+    },
+    {
+      "id": "DB-VOC-002",
+      "type": "vocabulary",
+      "text_original": "टोमणा",
+      "text_transliterated": "Tomna",
+      "text_translation": "Taunt / sarcastic jab delivered as an aside — the fundamental unit of Puneri communication",
+      "topics": [
+        "language",
+        "culture"
+      ],
+      "score": 10
+    },
+    {
+      "id": "DB-VOC-003",
+      "type": "vocabulary",
+      "text_original": "अगाऊ",
+      "text_transliterated": "Agau",
+      "text_translation": "Over-smart / unnecessarily proactive — does more than asked, gives unsolicited opinions",
+      "topics": [
+        "culture",
+        "language"
+      ],
+      "score": 9
+    },
+    {
+      "id": "DB-VOC-004",
+      "type": "vocabulary",
+      "text_original": "TTMM — तुझा तू माझा मी",
+      "text_transliterated": "Tuza Tu Maza Me",
+      "text_translation": "Yours is yours, mine is mine — clarity over warmth, precision over generosity",
+      "topics": [
+        "language",
+        "culture"
+      ],
+      "score": 9
+    },
+    {
+      "id": "DB-VOC-005",
+      "type": "vocabulary",
+      "text_original": "Aawraa",
+      "text_transliterated": "Aawraa",
+      "text_translation": "Exaggerated reaction of disbelief — 'what nonsense' — core dismissal word",
+      "topics": [
+        "language"
+      ],
+      "score": 9
+    },
+    {
+      "id": "DB-VOC-006",
+      "type": "vocabulary",
+      "text_original": "Ghanta",
+      "text_transliterated": "Ghanta",
+      "text_translation": "Deep disbelief / absolute nonsense — one-word sentence, conversation over",
+      "topics": [
+        "language"
+      ],
+      "score": 8
+    },
+    {
+      "id": "DB-VOC-007",
+      "type": "vocabulary",
+      "text_original": "Lai Bhaari",
+      "text_transliterated": "Lai Bhaari",
+      "text_translation": "Very great — genuine OR ironic depending on delivery. Same text, different intent.",
+      "topics": [
+        "language"
+      ],
+      "score": 8
+    },
+    {
+      "id": "DB-VOC-008",
+      "type": "vocabulary",
+      "text_original": "मखलाशी",
+      "text_transliterated": "Makhlaashi",
+      "text_translation": "Artful covering-up / bureaucratic obfuscation — a specific cognitive skill",
+      "topics": [
+        "language",
+        "bureaucracy",
+        "politics"
+      ],
+      "score": 9
+    },
+    {
+      "id": "DB-VOC-009",
+      "type": "vocabulary",
+      "text_original": "उफराटा",
+      "text_transliterated": "Uphrata",
+      "text_translation": "Inverse / contrary — logic that is structurally, constitutionally wrong in direction",
+      "topics": [
+        "language",
+        "philosophy"
+      ],
+      "score": 8
+    },
+    {
+      "id": "DB-VOC-010",
+      "type": "vocabulary",
+      "text_original": "पाल्हाळ",
+      "text_transliterated": "Paalhaal",
+      "text_translation": "Verbosity / long-windedness — Tatya has zero tolerance for this",
+      "topics": [
+        "language",
+        "education"
+      ],
+      "score": 8
+    },
+    {
+      "id": "DB-VOC-011",
+      "type": "vocabulary",
+      "text_original": "झोंबणारे",
+      "text_transliterated": "Zombnare",
+      "text_translation": "Stinging / piercing — a remark that hits exactly where aimed",
+      "topics": [
+        "language"
+      ],
+      "score": 9
+    },
+    {
+      "id": "DB-VOC-012",
+      "type": "vocabulary",
+      "text_original": "निरुत्तर",
+      "text_transliterated": "Niruttar",
+      "text_translation": "Without answer / stumped — acceptable. You encountered a hard problem.",
+      "topics": [
+        "language",
+        "philosophy"
+      ],
+      "score": 8
+    },
+    {
+      "id": "DB-VOC-013",
+      "type": "vocabulary",
+      "text_original": "निष्प्रश्न",
+      "text_transliterated": "Nishprashn",
+      "text_translation": "Without questions — terminal. Worse than wrong. Intellectually finished.",
+      "topics": [
+        "language",
+        "philosophy",
+        "education"
+      ],
+      "score": 9
+    },
+    {
+      "id": "DB-VOC-014",
+      "type": "vocabulary",
+      "text_original": "खापर फोडणे",
+      "text_transliterated": "Khapar phodne",
+      "text_translation": "Breaking the earthen pot — blame-shifting. The real fear is having no khapar available.",
+      "topics": [
+        "language",
+        "culture",
+        "philosophy"
+      ],
+      "score": 9
+    },
+    {
+      "id": "DB-VOC-015",
+      "type": "vocabulary",
+      "text_original": "कोडगेपणा",
+      "text_transliterated": "Kodagepana",
+      "text_translation": "Shamelessness / cultivated audacity — a professional-grade skill in the right hands",
+      "topics": [
+        "language",
+        "politics",
+        "culture"
+      ],
+      "score": 9
+    },
+    {
+      "id": "DB-VOC-016",
+      "type": "vocabulary",
+      "text_original": "काय हो",
+      "text_transliterated": "Kay ho",
+      "text_translation": "Well you see / conversational shrug — signals: what follows is obvious to anyone paying attention",
+      "topics": [
+        "language",
+        "culture"
+      ],
+      "score": 9
+    }
+  ]
+}
