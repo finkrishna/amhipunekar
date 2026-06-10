@@ -155,6 +155,16 @@
 <script>
 let conversationId = null;
 let snark = "high";
+let accessCode = localStorage.getItem("tatya_access_code") || "";
+
+function askAccessCode(msg) {
+  const code = prompt(msg || "This tapri is invite-only. Enter the access code:");
+  if (code) {
+    accessCode = code.trim();
+    localStorage.setItem("tatya_access_code", accessCode);
+  }
+  return !!code;
+}
 
 document.querySelectorAll(".dial button").forEach(b => {
   b.onclick = () => {
@@ -197,7 +207,8 @@ function addRatingBar(msgDiv, messageId, responseText) {
           conversation_id: conversationId,
           message_id: messageId,
           score: i,
-          response_text: responseText
+          response_text: responseText,
+          access_code: accessCode
         })
       }).then(r => r.json());
       bar.innerHTML = `<span class="done">${i}/10 — ${r.verdict}</span>`;
@@ -218,13 +229,35 @@ form.onsubmit = async (e) => {
   pending.querySelector(".bubble").innerHTML = '<span class="thinking">... (he heard you. he is deciding whether the question deserves him)</span>';
 
   try {
-    const res = await fetch("/chat", {
+    let res = await fetch("/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: text, conversation_id: conversationId, snark_level: snark })
+      body: JSON.stringify({ message: text, conversation_id: conversationId, snark_level: snark, access_code: accessCode })
     });
-    const data = await res.json();
+    let data = await res.json();
+
+    if (res.status === 401) {
+      // Wrong/missing code — ask, then retry once
+      if (askAccessCode(data.message)) {
+        res = await fetch("/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: text, conversation_id: conversationId, snark_level: snark, access_code: accessCode })
+        });
+        data = await res.json();
+      }
+    }
+
+    if (res.status === 401) {
+      pending.querySelector(".bubble").textContent = data.message || "Invite-only. No code, no Tatya.";
+      return;
+    }
+    if (res.status === 429) {
+      pending.querySelector(".bubble").textContent = data.message || "Tatya is done for today. Come back tomorrow.";
+      return;
+    }
     if (data.error) throw new Error(data.error);
+
     conversationId = data.conversation_id;
     pending.querySelector(".bubble").textContent = data.response;
     addRatingBar(pending, data.message_id, data.response);

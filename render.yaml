@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: tatya
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    # Single worker: usage counters and conversation history are in-memory
+    startCommand: cd src && gunicorn -w 1 -b 0.0.0.0:$PORT --timeout 120 tatya:app
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false          # set in Render dashboard — never in the repo
+      - key: TATYA_ACCESS_CODE
+        sync: false          # the code you share with friends
+      - key: TATYA_DAILY_LIMIT
+        value: "400"
+      - key: TATYA_IP_DAILY_LIMIT
+        value: "60"
+    healthCheckPath: /health

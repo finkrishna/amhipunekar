@@ -209,6 +209,32 @@ Tatya currently runs on **Claude Fable 5** (`claude-fable-5`) — change `MODEL`
 
 ---
 
+## Hosting It (one shared URL, no setup for users)
+
+The repo includes `render.yaml` — a [Render](https://render.com) blueprint. Deploy:
+
+1. Sign in to Render with GitHub → **New → Blueprint** → select this repo
+2. Set two secrets when prompted:
+   - `ANTHROPIC_API_KEY` — your key (the host pays for all usage)
+   - `TATYA_ACCESS_CODE` — a shared code; visitors are asked for it once
+3. Deploy. Share the URL + access code with friends.
+
+Built-in cost protection (configurable via env vars):
+
+| Guard | Default | Env var |
+|---|---|---|
+| Access code gate | on if set | `TATYA_ACCESS_CODE` |
+| Daily cap, all users | 400 chats | `TATYA_DAILY_LIMIT` |
+| Daily cap, per visitor | 60 chats | `TATYA_IP_DAILY_LIMIT` |
+
+Ratings submitted on a hosted instance are echoed to the server log stream
+(`RATING {...}` lines) since hosted disks are ephemeral.
+
+> **Note:** Render's free tier sleeps after ~15 min idle — the first message
+> after a gap takes ~30s while the tapri reopens. Fitting, honestly.
+
+---
+
 ## Contributing
 
 Pull requests welcome. Please read [DATABANK.md](docs/DATABANK.md) before submitting DataBank entries.

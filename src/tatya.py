@@ -28,8 +28,51 @@ MODEL = "claude-fable-5"
 STATIC_DIR = os.path.join(os.path.dirname(__file__), "../static")
 RATINGS_FILE = os.path.join(os.path.dirname(__file__), "../databank/ratings.jsonl")
 
+# --- Hosted-deployment guards (all optional; off when env vars unset) ---
+# Shared code friends must enter once. If unset, no gate (local use).
+ACCESS_CODE = os.getenv("TATYA_ACCESS_CODE", "")
+# Hard daily caps so a public URL can't run up the API bill.
+DAILY_LIMIT = int(os.getenv("TATYA_DAILY_LIMIT", "400"))      # all users combined
+IP_DAILY_LIMIT = int(os.getenv("TATYA_IP_DAILY_LIMIT", "60"))  # per visitor
+MAX_MESSAGE_CHARS = 2000
+MAX_CONVERSATIONS = 500  # in-memory store bound
+
 app = Flask(__name__)
 client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+
+# Daily usage counters — in-memory, reset on UTC date change.
+# Single-worker deployment assumed (see render.yaml: gunicorn -w 1).
+usage = {"date": None, "total": 0, "by_ip": {}}
+
+
+def _client_ip():
+    fwd = request.headers.get("X-Forwarded-For", "")
+    return fwd.split(",")[0].strip() if fwd else request.remote_addr
+
+
+def check_guards(data):
+    """Returns (error_response, status) or (None, None) if request may proceed."""
+    if ACCESS_CODE and data.get("access_code") != ACCESS_CODE:
+        return jsonify({
+            "error": "access_code_required",
+            "message": "Arre, who let you in? This tapri is invite-only. Ask Krishna for the code."
+        }), 401
+
+    today = datetime.utcnow().date().isoformat()
+    if usage["date"] != today:
+        usage["date"], usage["total"], usage["by_ip"] = today, 0, {}
+
+    ip = _client_ip()
+    if usage["total"] >= DAILY_LIMIT or usage["by_ip"].get(ip, 0) >= IP_DAILY_LIMIT:
+        return jsonify({
+            "error": "rate_limited",
+            "message": "Bas. Tatya has answered enough questions for one day. "
+                       "The tapri reopens tomorrow. 1 to 4 is rest, after that also rest."
+        }), 429
+
+    usage["total"] += 1
+    usage["by_ip"][ip] = usage["by_ip"].get(ip, 0) + 1
+    return None, None
 
 # Load DataBank once at startup
 try:
@@ -90,17 +133,25 @@ def chat():
         message_id (str): For rating this specific response
     """
     data = request.get_json()
-    
+
     if not data or "message" not in data:
         return jsonify({"error": "Field 'message' is required"}), 400
-    
+
     message = data["message"].strip()
     if not message:
         return jsonify({"error": "Message cannot be empty"}), 400
+    if len(message) > MAX_MESSAGE_CHARS:
+        return jsonify({"error": "Message too long. Tatya appreciates brevity; practice it."}), 400
+
+    guard_resp, guard_status = check_guards(data)
+    if guard_resp is not None:
+        return guard_resp, guard_status
 
     # Get or create conversation
     conversation_id = data.get("conversation_id") or str(uuid.uuid4())
     if conversation_id not in conversations:
+        if len(conversations) >= MAX_CONVERSATIONS:
+            conversations.clear()  # crude but bounded; sessions are ephemeral anyway
         conversations[conversation_id] = []
 
     history = conversations[conversation_id]
@@ -171,7 +222,10 @@ def rate():
         feedback (str): Optional. "How would Tatya actually say this?"
     """
     data = request.get_json()
-    
+
+    if ACCESS_CODE and data.get("access_code") != ACCESS_CODE:
+        return jsonify({"error": "access_code_required"}), 401
+
     required = ["conversation_id", "message_id", "score"]
     for field in required:
         if field not in data:
@@ -190,9 +244,15 @@ def rate():
         "timestamp": datetime.utcnow().isoformat()
     }
     ratings_store.append(rating)
-    # Persist — ratings feed the DataBank curation loop
-    with open(RATINGS_FILE, "a", encoding="utf-8") as f:
-        f.write(json.dumps(rating, ensure_ascii=False) + "\n")
+    # Persist — ratings feed the DataBank curation loop.
+    # Also echo to stdout: on hosted platforms local disk is ephemeral,
+    # but stdout lands in the platform's log stream.
+    print("RATING " + json.dumps(rating, ensure_ascii=False), flush=True)
+    try:
+        with open(RATINGS_FILE, "a", encoding="utf-8") as f:
+            f.write(json.dumps(rating, ensure_ascii=False) + "\n")
+    except OSError:
+        pass  # read-only filesystem on some hosts — stdout log still has it
 
     # Verdict
     if score >= 8:
@@ -245,9 +305,11 @@ def databank_stats():
 
 
 if __name__ == "__main__":
+    port = int(os.getenv("PORT", "5000"))
     print("\n🟠 AmhiPunekar — Tatya is waking up...")
     print(f"   DataBank: {len(DATABANK)} entries loaded")
     print(f"   Model: {MODEL}")
-    print(f"   Chat UI: http://localhost:5000")
+    print(f"   Access gate: {'ON' if ACCESS_CODE else 'off (local mode)'}")
+    print(f"   Chat UI: http://localhost:{port}")
     print("\n   Tatya is ready. Try not to embarrass yourself.\n")
-    app.run(debug=False, port=5000)
+    app.run(debug=False, host="0.0.0.0", port=port)
