@@ -32,3 +32,6 @@ logs/
 # Local data
 *.db
 *.sqlite
+
+# User-generated ratings (local only)
+databank/ratings.jsonl

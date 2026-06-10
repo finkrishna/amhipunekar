@@ -42,17 +42,19 @@ Tatya's Response — sharp, Puneri, culturally rooted
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/AmhiPunekar/amhipunekar.git
+git clone https://github.com/finkrishna/amhipunekar.git
 cd amhipunekar
 ```
 
 ### 2. Install dependencies
 
 ```bash
-pip install anthropic flask python-dotenv
+pip install -r requirements.txt
 ```
 
 ### 3. Set your API key
+
+You need your own [Anthropic API key](https://platform.claude.com/) — Tatya runs on Claude.
 
 ```bash
 cp .env.example .env
@@ -62,10 +64,14 @@ cp .env.example .env
 ### 4. Run Tatya
 
 ```bash
-python src/tatya.py
+cd src && python tatya.py
 ```
 
 ### 5. Talk to him
+
+Open **http://localhost:5000** — chat UI with snark dial (Demolition / Khochak / Saumya) and a 0–10 authenticity rating under every reply.
+
+Or via API:
 
 ```bash
 curl -X POST http://localhost:5000/chat \
@@ -80,25 +86,22 @@ curl -X POST http://localhost:5000/chat \
 ```
 amhipunekar/
 ├── README.md
+├── LICENSE
 ├── .env.example
 ├── requirements.txt
 ├── src/
 │   ├── tatya.py              ← Main Flask API server
-│   ├── persona.py            ← Tatya system prompt
+│   ├── persona.py            ← Tatya system prompt + snark dial
 │   └── retrieval.py          ← DataBank RAG retrieval
+├── static/
+│   └── index.html            ← Web chat UI (snark dial + ratings)
 ├── databank/
-│   ├── master_databank.json  ← 71 verified cultural entries
-│   ├── patya.json            ← Puneri Patya archive
-│   ├── proverbs.json         ← Marathi Mhani
-│   ├── pula.json             ← Verified PuLa Deshpande
-│   └── vocabulary.json       ← Puneri vocabulary bank
+│   └── master_databank.json  ← 71 verified cultural entries
 ├── docs/
 │   ├── ARCHITECTURE.md       ← How it works
-│   ├── DATABANK.md           ← DataBank schema + contribution guide
-│   └── TATYA_VOICE.md        ← Voice guidelines for contributors
+│   └── DATABANK.md           ← DataBank schema + contribution guide
 ├── examples/
 │   ├── python_example.py
-│   ├── node_example.js
 │   └── curl_examples.sh
 └── tests/
     └── test_tatya.py
@@ -193,10 +196,16 @@ Ratings + feedback feed the DataBank improvement pipeline.
 | 0 | Founding document | ✅ Done |
 | 1 | Tatya v0.1 — voice testing | ✅ Done |
 | 1b | DataBank seed — 71 entries | ✅ Done |
-| 2 | API wrapper — this repo | 🔜 Current |
-| 3 | Web app — snark dial + rating system | Planned |
+| 2 | API wrapper — this repo | ✅ Done |
+| 3 | Web app — snark dial + rating system | ✅ Done |
 | 4 | Memory layer — persistent history | Planned |
 | 5 | Kakku — female Punekar persona | Future |
+
+---
+
+## Model
+
+Tatya currently runs on **Claude Fable 5** (`claude-fable-5`) — change `MODEL` in `src/tatya.py` to use a different Claude model. Conversation history is in-memory; restarting the server starts fresh.
 
 ---
 
