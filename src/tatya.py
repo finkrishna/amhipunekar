@@ -15,7 +15,7 @@ import os
 import uuid
 import json
 from datetime import datetime
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from dotenv import load_dotenv
 import anthropic
 
@@ -23,6 +23,10 @@ from persona import build_system_prompt
 from retrieval import load_databank, retrieve, format_for_prompt
 
 load_dotenv()
+
+MODEL = "claude-fable-5"
+STATIC_DIR = os.path.join(os.path.dirname(__file__), "../static")
+RATINGS_FILE = os.path.join(os.path.dirname(__file__), "../databank/ratings.jsonl")
 
 app = Flask(__name__)
 client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
@@ -45,6 +49,11 @@ ratings_store = []
 
 @app.route("/", methods=["GET"])
 def index():
+    return send_from_directory(STATIC_DIR, "index.html")
+
+
+@app.route("/api", methods=["GET"])
+def api_info():
     return jsonify({
         "project": "AmhiPunekar",
         "persona": "Tatya — Tapri Philosopher, Narayan Peth, Pune",
@@ -100,8 +109,11 @@ def chat():
     context_entries = retrieve(message, DATABANK, top_k=3)
     context_str = format_for_prompt(context_entries)
 
-    # Build system prompt
-    system_prompt = build_system_prompt(context_str)
+    # Build system prompt with snark dial
+    snark = data.get("snark_level", "high")
+    if snark not in ("high", "medium", "low"):
+        snark = "high"
+    system_prompt = build_system_prompt(context_str, snark=snark)
 
     # Add user message to history
     history.append({"role": "user", "content": message})
@@ -111,13 +123,15 @@ def chat():
 
     try:
         response = client.messages.create(
-            model="claude-sonnet-4-20250514",
+            model=MODEL,
             max_tokens=720,
             system=system_prompt,
             messages=recent_history
         )
         
-        reply = response.content[0].text
+        # Fable 5 may emit a thinking block before the text block —
+        # never assume content[0] is text
+        reply = next((b.text for b in response.content if b.type == "text"), "")
         
         # Add assistant response to history
         history.append({"role": "assistant", "content": reply})
@@ -172,9 +186,13 @@ def rate():
         "message_id": data["message_id"],
         "score": score,
         "feedback": data.get("feedback", ""),
+        "response_text": data.get("response_text", ""),
         "timestamp": datetime.utcnow().isoformat()
     }
     ratings_store.append(rating)
+    # Persist — ratings feed the DataBank curation loop
+    with open(RATINGS_FILE, "a", encoding="utf-8") as f:
+        f.write(json.dumps(rating, ensure_ascii=False) + "\n")
 
     # Verdict
     if score >= 8:
@@ -229,7 +247,7 @@ def databank_stats():
 if __name__ == "__main__":
     print("\n🟠 AmhiPunekar — Tatya is waking up...")
     print(f"   DataBank: {len(DATABANK)} entries loaded")
-    print(f"   Model: claude-sonnet-4-20250514")
-    print(f"   Running on: http://localhost:5000")
+    print(f"   Model: {MODEL}")
+    print(f"   Chat UI: http://localhost:5000")
     print("\n   Tatya is ready. Try not to embarrass yourself.\n")
-    app.run(debug=True, port=5000)
+    app.run(debug=False, port=5000)

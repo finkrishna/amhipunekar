@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tatya — AmhiPunekar</title>
+<style>
+  :root {
+    --paper: #F2EBDD;
+    --paper-dark: #E8DEC9;
+    --ink: #2B1F14;
+    --maroon: #7B2D26;
+    --terracotta: #B5542E;
+    --gold: #9C7A2E;
+    --user-bg: #E3D9C3;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: var(--paper);
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 34px, rgba(43,31,20,0.025) 35px);
+    color: var(--ink);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    background: var(--maroon);
+    color: var(--paper);
+    padding: 14px 22px;
+    border-bottom: 5px double var(--gold);
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  header h1 { font-size: 1.5rem; letter-spacing: 1px; font-weight: normal; }
+  header h1 b { color: #E9C46A; }
+  header .tagline { font-style: italic; font-size: .85rem; opacity: .85; }
+  .dial {
+    display: flex; align-items: center; gap: 6px;
+    font-size: .8rem; color: var(--paper);
+  }
+  .dial span { opacity: .8; font-style: italic; }
+  .dial button {
+    font-family: inherit;
+    background: transparent;
+    color: var(--paper);
+    border: 1px solid rgba(242,235,221,.5);
+    padding: 3px 10px;
+    cursor: pointer;
+    font-size: .8rem;
+  }
+  .dial button.active { background: var(--terracotta); border-color: var(--terracotta); }
+
+  #chat {
+    flex: 1;
+    overflow-y: auto;
+    padding: 26px 0 18px;
+  }
+  .inner { max-width: 760px; margin: 0 auto; padding: 0 18px; }
+
+  .msg { margin-bottom: 18px; display: flex; flex-direction: column; }
+  .msg .who {
+    font-size: .72rem; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--terracotta); margin-bottom: 4px;
+  }
+  .msg.user { align-items: flex-end; }
+  .msg.user .who { color: #6b5d3f; }
+  .bubble {
+    max-width: 85%;
+    padding: 12px 16px;
+    line-height: 1.55;
+    white-space: pre-wrap;
+    border: 1px solid rgba(43,31,20,.25);
+    box-shadow: 2px 2px 0 rgba(43,31,20,.12);
+  }
+  .msg.tatya .bubble {
+    background: #FBF7EC;
+    border-left: 4px solid var(--maroon);
+  }
+  .msg.user .bubble {
+    background: var(--user-bg);
+    border-right: 4px solid var(--gold);
+  }
+  .rate {
+    margin-top: 6px;
+    font-size: .72rem;
+    color: #6b5d3f;
+    display: flex; align-items: center; gap: 4px; flex-wrap: wrap;
+  }
+  .rate b { font-style: italic; font-weight: normal; margin-right: 4px; }
+  .rate button {
+    font-family: inherit;
+    background: transparent; border: 1px solid rgba(43,31,20,.3);
+    width: 24px; height: 22px; cursor: pointer; font-size: .72rem; color: var(--ink);
+  }
+  .rate button:hover { background: var(--terracotta); color: #fff; }
+  .rate .done { font-style: italic; color: var(--maroon); }
+  .thinking { font-style: italic; color: #8a7a5c; }
+
+  footer {
+    border-top: 3px solid var(--maroon);
+    background: var(--paper-dark);
+    padding: 14px 0 10px;
+  }
+  form { display: flex; gap: 10px; max-width: 760px; margin: 0 auto; padding: 0 18px; }
+  input[type=text] {
+    flex: 1;
+    font-family: inherit; font-size: 1rem;
+    padding: 11px 14px;
+    background: #FBF7EC;
+    border: 1px solid rgba(43,31,20,.4);
+    color: var(--ink);
+  }
+  input[type=text]:focus { outline: 2px solid var(--terracotta); }
+  form button {
+    font-family: inherit; font-size: .95rem;
+    background: var(--maroon); color: var(--paper);
+    border: none; padding: 0 22px; cursor: pointer;
+    letter-spacing: 1px;
+  }
+  form button:disabled { opacity: .5; cursor: wait; }
+  .note {
+    text-align: center; font-size: .7rem; font-style: italic;
+    color: #8a7a5c; margin-top: 8px;
+  }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>तात्या <b>·</b> Tatya</h1>
+    <div class="tagline">Tapri philosopher, Narayan Peth. Questions entertained 9–1 and 4–8. Sharpness guaranteed.</div>
+  </div>
+  <div class="dial">
+    <span>Snark:</span>
+    <button data-snark="low">Saumya</button>
+    <button data-snark="medium">Khochak</button>
+    <button data-snark="high" class="active">Demolition</button>
+  </div>
+</header>
+
+<div id="chat"><div class="inner" id="messages"></div></div>
+
+<footer>
+  <form id="form">
+    <input type="text" id="input" placeholder="Vichara... (ask, if you must)" autocomplete="off" autofocus>
+    <button type="submit" id="send">Vicha&#8203;ra</button>
+  </form>
+  <div class="note">Rate each reply 0–10 · 0 = Mumbai nonsense · 10 = pucca Punekar · ratings feed the DataBank</div>
+</footer>
+
+<script>
+let conversationId = null;
+let snark = "high";
+
+document.querySelectorAll(".dial button").forEach(b => {
+  b.onclick = () => {
+    document.querySelectorAll(".dial button").forEach(x => x.classList.remove("active"));
+    b.classList.add("active");
+    snark = b.dataset.snark;
+  };
+});
+
+const messagesEl = document.getElementById("messages");
+const form = document.getElementById("form");
+const input = document.getElementById("input");
+const sendBtn = document.getElementById("send");
+
+function addMsg(role, text) {
+  const div = document.createElement("div");
+  div.className = "msg " + role;
+  div.innerHTML = `<div class="who">${role === "tatya" ? "Tatya" : "Tumhi"}</div>`;
+  const bubble = document.createElement("div");
+  bubble.className = "bubble";
+  bubble.textContent = text;
+  div.appendChild(bubble);
+  messagesEl.appendChild(div);
+  div.scrollIntoView({ behavior: "smooth", block: "end" });
+  return div;
+}
+
+function addRatingBar(msgDiv, messageId, responseText) {
+  const bar = document.createElement("div");
+  bar.className = "rate";
+  bar.innerHTML = "<b>Puneri authenticity?</b>";
+  for (let i = 0; i <= 10; i++) {
+    const btn = document.createElement("button");
+    btn.textContent = i;
+    btn.onclick = async () => {
+      const r = await fetch("/rate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          conversation_id: conversationId,
+          message_id: messageId,
+          score: i,
+          response_text: responseText
+        })
+      }).then(r => r.json());
+      bar.innerHTML = `<span class="done">${i}/10 — ${r.verdict}</span>`;
+    };
+    bar.appendChild(btn);
+  }
+  msgDiv.appendChild(bar);
+}
+
+form.onsubmit = async (e) => {
+  e.preventDefault();
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = "";
+  sendBtn.disabled = true;
+  addMsg("user", text);
+  const pending = addMsg("tatya", "");
+  pending.querySelector(".bubble").innerHTML = '<span class="thinking">... (he heard you. he is deciding whether the question deserves him)</span>';
+
+  try {
+    const res = await fetch("/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: text, conversation_id: conversationId, snark_level: snark })
+    });
+    const data = await res.json();
+    if (data.error) throw new Error(data.error);
+    conversationId = data.conversation_id;
+    pending.querySelector(".bubble").textContent = data.response;
+    addRatingBar(pending, data.message_id, data.response);
+  } catch (err) {
+    pending.querySelector(".bubble").textContent = "Arre, something broke: " + err.message;
+  } finally {
+    sendBtn.disabled = false;
+    input.focus();
+    pending.scrollIntoView({ behavior: "smooth", block: "end" });
+  }
+};
+</script>
+</body>
+</html>
